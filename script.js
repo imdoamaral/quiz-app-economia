@@ -24,10 +24,22 @@ const arrayQuestions = [
         ],
     },
     {
+        "category": "Inflação & Desemprego",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Uma grande empresa fecha as portas. Há um AUMENTO do desemprego e uma QUEDA nos preços dos bens e serviços da cidade. Com base nesse cenário, podemos concluir que:",
+        "correct_answer": "Inflação e desemprego possuem uma relação inversa",
+        "incorrect_answers": [
+            "Inflação é algo que só afeta a classe média",
+            "Inflação e desemprego não possuem relação alguma",
+            "Inflação é uma invenção da mídia"
+        ],
+    },
+    {
         "category": "Inflação",
         "type": "boolean",
         "difficulty": "easy",
-        "question": "Tipo de Inflação que está alinhada com a meta do governo e sua política econômica:",
+        "question": "Tipo de Inflação definida como a meta do governo e da economia:",
         "correct_answer": "Inflação Ideal",
         "incorrect_answers": [
             "Inflação Inercial",
@@ -39,7 +51,7 @@ const arrayQuestions = [
         "category": "Inflação",
         "type": "boolean",
         "difficulty": "easy",
-        "question": "A principal causa da Inflação de DEMANDA é o aumento da procura por determinado produto ou serviço - esta afirmação está:",
+        "question": "A principal causa da Inflação de DEMANDA é o excesso de demanda em relação à produção disponível - esta afirmação está:",
         "correct_answer": "CERTA",
         "incorrect_answers": [
             "ERRADA"
@@ -71,7 +83,7 @@ const arrayQuestions = [
         "category": "Inflação",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "Quando se tem custos de produção elevados e aumento da tributação das empresas, isso pode gerar uma:",
+        "question": "Demanda estável e custos de produção elevados pode gerar uma:",
         "correct_answer": "Inflação de Custos",
         "incorrect_answers": [
             "Inflação de Demanda",
@@ -118,7 +130,6 @@ function showQuestion(data) {
     let optionsList = incorrectAnswer;
 
     optionsList.splice(Math.floor(Math.random() * (incorrectAnswer.length + 1)), 0, correctAnswer);
-    console.log(optionsList);
 
     _question.innerHTML = `${data.question} <br> <span class = "category"> ${data.category} </span>`;
     _options.innerHTML = `
