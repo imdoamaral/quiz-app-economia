@@ -4,40 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Game - API Project</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel = "stylesheet" href = "main.css">
-</head>
-<body class = "flex">
+
+    <title>Quiz de Economia</title>
     
-    <div class = "wrapper">
-        <div class = "quiz-container">
-            <div class = "quiz-head">
-                <h1 class = "quiz-title">Quiz Game</h1>
-                <div class = "quiz-score flex">
-                    <span id = "correct-score"></span>/<span id = "total-question"></span>
+    <!-- Ícones FontAwesome - CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="flex">
+
+    <div class="wrapper">
+        <div class="quiz-container">
+            <div class="quiz-head">
+                <h1 class="quiz-title">Quiz de Economia</h1>
+                <div class="quiz-score flex">
+                    <span id="correct-score"></span>
+                    /
+                    <span id="total-question"></span>
                 </div>
             </div>
-            <div class = "quiz-body">
-                <h2 class = "quiz-question" id = "question"><!--What is the full form of HTTP? --></h2>
-                <ul class = "quiz-options">
-                    <!-- <li>1. Hyper text transfer package</li>
-                    <li>2. Hyper text transfer protocol</li>
-                    <li>3. Hyphenation text test program</li>
-                    <li>4. None of the above</li> -->
+
+            <div class="quiz-body">
+                <h2 class="quiz-question" id="question">
+                    <!-- Explique qual é o papel do intermediário financeiro em uma economia. -->
+                    <br>
+                    <span class="category">Economia Monetária</span>
+                </h2>
+                <ul class="quiz-options">
+                    <!-- <li>1. Aproximar quem TEM de quem NÃO TEM recursos</li>
+                    <li>1. Aproximar quem TEM de quem NÃO TEM recursos</li>
+                    <li>1. Aproximar quem TEM de quem NÃO TEM recursos</li>
+                    <li>1. Aproximar quem TEM de quem NÃO TEM recursos</li> -->
                 </ul>
-                <div id = "result">
+                <div id="result">
+                    <!-- Resultado aqui! -->
                 </div>
             </div>
-            <div class = "quiz-foot">
-                <button type = "button" id = "check-answer">Check Answer</button>
-                <button type = "button" id = "play-again">Play Again!</button>
+
+            <div class="quiz-foot">
+                <button type="button" id="check-answer">Mostrar Resposta</button>
+                <button type="button" id="play-again">Jogar Novamente</button>
             </div>
         </div>
     </div>
-
-
-
-    <script src = "script.js"></script>
+    
+    <!-- Javascript -->
+    <script src="script.js"></script>
 </body>
 </html>
