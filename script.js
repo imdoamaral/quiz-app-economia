@@ -1,3 +1,4 @@
+// --- LISTA DE PERGUNTAS ---
 const arrayQuestions = [
     {
         "category": "Desemprego",
@@ -27,7 +28,7 @@ const arrayQuestions = [
         "category": "Inflação & Desemprego",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "Uma grande empresa fecha as portas. Há um AUMENTO do desemprego e uma QUEDA nos preços dos bens e serviços da cidade. Com base nesse cenário, podemos concluir que:",
+        "question": "Uma grande empresa fecha as portas. Há um AUMENTO do desemprego e uma QUEDA nos preços dos bens e serviços da cidade. Com base neste cenário, podemos concluir que:",
         "correct_answer": "Inflação e desemprego possuem uma relação inversa",
         "incorrect_answers": [
             "Inflação é algo que só afeta a classe média",
@@ -93,6 +94,7 @@ const arrayQuestions = [
     },
 ];
 
+// --- VARIÁVEIS DE ESCOPO GLOBAL ---
 const _question = document.getElementById('question');
 const _options = document.querySelector('.quiz-options');
 const _correctScore = document.getElementById('correct-score');
@@ -103,7 +105,7 @@ const _result = document.getElementById('result');
 
 let correctAnswer = "", correctScore = askedCount = 0, totalQuestion = 10;
 
-// Event listeners
+// --- EVENT LISTENERS ---
 function eventListeners() {
     _checkBtn.addEventListener('click', checkAnswer);
     _playAgainBtn.addEventListener('click', restartQuiz);
@@ -116,11 +118,21 @@ document.addEventListener('DOMContentLoaded', function () {
     _correctScore.textContent = correctScore;
 });
 
-// Outras funções
+// --- DEMAIS FUNÇÕES ---
+
+// armazena as questões que já foram exibidas
+const displayedQuestions = [];
+
+// seleciona uma questão aleatória de arrayQuestions 
+// e verifica se ela já foi exibida anteriormente
 function loadQuestion() {
-    const question = arrayQuestions[Math.floor(Math.random() * arrayQuestions.length)];
-    _result.innerHTML = "";
-    showQuestion(question);
+  let question = arrayQuestions[Math.floor(Math.random() * arrayQuestions.length)];
+  while (displayedQuestions.includes(question)) {
+    question = arrayQuestions[Math.floor(Math.random() * arrayQuestions.length)];
+  }
+  displayedQuestions.push(question);
+  _result.innerHTML = "";
+  showQuestion(question);
 }
 
 function showQuestion(data) {
@@ -161,7 +173,7 @@ function checkAnswer() {
             correctScore++;
             _result.innerHTML = `<p><i class = "fas fa-check"></i>Acertou! Sabe muito.</p>`;
         } else {
-            _result.innerHTML = `<p><i class = "fas fa-times"></i>Erooou!</p> <small><b>Resposta Certa: </b>${correctAnswer}</small>`;
+            _result.innerHTML = `<p><i class = "fas fa-times"></i>Erooou!</p> <small><b>Ver Resposta: </b>${correctAnswer}</small>`;
         }
         checkCount();
     } else {
