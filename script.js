@@ -31,14 +31,14 @@ const arrayQuestions = [
         "question": "Uma grande empresa fecha as portas. Há um AUMENTO do desemprego e uma QUEDA nos preços dos bens e serviços da cidade. Com base neste cenário, podemos concluir que:",
         "correct_answer": "Inflação e desemprego possuem uma relação inversa",
         "incorrect_answers": [
-            "Inflação é algo que só afeta a classe média",
+            "Inflação só afeta a classe média",
             "Inflação e desemprego não possuem relação alguma",
-            "Inflação é uma invenção da mídia"
+            "Inflação só existe na cabeça das pessoas"
         ],
     },
     {
         "category": "Inflação",
-        "type": "boolean",
+        "type": "multiple",
         "difficulty": "easy",
         "question": "Tipo de Inflação definida como a meta do governo e da economia:",
         "correct_answer": "Inflação Ideal",
@@ -92,6 +92,64 @@ const arrayQuestions = [
             "Inflação Ideal"
         ],
     },
+    {
+        "category": "Inflação",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "São CAUSAS da Inflação, EXCETO:",
+        "correct_answer": "Redução do gasto público",
+        "incorrect_answers": [
+            "Impressão de dinheiro pelo governo",
+            "Ajuste de preços por achar que o outro também vai ajustar",
+            "Desequilíbrio entre oferta e demanda de bens e serviços"
+        ],
+    },
+    {
+        "category": "Inflação",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "AUMENTO geral do nível dos preços, o que resulta em PERDA de poder aquisitivo da moeda:",
+        "correct_answer": "Inflação",
+        "incorrect_answers": [
+            "Desemprego",
+            "Pandemia",
+            "Feriados comerciais"
+        ],
+    },
+    {
+        "category": "Inflação",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "São EFEITOS da Inflação, EXCETO:",
+        "correct_answer": "Prejudica a renda livre dos comerciantes",
+        "incorrect_answers": [
+            "Prejudica quem depende de salário mínimo",
+            "Resistência a investimentos de longo prazo",
+            "Dificulta exportações e estimula importações"
+        ],
+    },
+    {
+        "category": "Inflação",
+        "type": "boolean",
+        "difficulty": "medium",
+        "question": "Porque existem tantos índices de Inflação?",
+        "correct_answer": "Porque a alta de preços não atinge todo mundo da mesma forma",
+        "incorrect_answers": [
+            "Porque a alta de preços gera resistência a investimentos de longo prazo."
+        ],
+    },
+    {
+        "category": "Inflação",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "São formas de se COMBATER a Inflação, EXCETO:",
+        "correct_answer": "Dificultar exportações",
+        "incorrect_answers": [
+            "Alterar a taxa de juros",
+            "Controlar a emissão de dinheiro",
+            "Reduzir o gasto público"
+        ],
+    },
 ];
 
 // --- VARIÁVEIS DE ESCOPO GLOBAL ---
@@ -103,7 +161,7 @@ const _checkBtn = document.getElementById('check-answer');
 const _playAgainBtn = document.getElementById('play-again');
 const _result = document.getElementById('result');
 
-let correctAnswer = "", correctScore = askedCount = 0, totalQuestion = 10;
+let correctAnswer = "", correctScore = askedCount = 0, totalQuestion = 5;
 
 // --- EVENT LISTENERS ---
 function eventListeners() {
@@ -126,13 +184,13 @@ const displayedQuestions = [];
 // seleciona uma questão aleatória de arrayQuestions 
 // e verifica se ela já foi exibida anteriormente
 function loadQuestion() {
-  let question = arrayQuestions[Math.floor(Math.random() * arrayQuestions.length)];
-  while (displayedQuestions.includes(question)) {
-    question = arrayQuestions[Math.floor(Math.random() * arrayQuestions.length)];
-  }
-  displayedQuestions.push(question);
-  _result.innerHTML = "";
-  showQuestion(question);
+    let question = arrayQuestions[Math.floor(Math.random() * arrayQuestions.length)];
+    while (displayedQuestions.includes(question)) {
+        question = arrayQuestions[Math.floor(Math.random() * arrayQuestions.length)];
+    }
+    displayedQuestions.push(question);
+    _result.innerHTML = "";
+    showQuestion(question);
 }
 
 function showQuestion(data) {
@@ -171,9 +229,9 @@ function checkAnswer() {
         let selectedAnswer = _options.querySelector('.selected span').textContent;
         if (selectedAnswer == correctAnswer) {
             correctScore++;
-            _result.innerHTML = `<p><i class = "fas fa-check"></i>Acertou! Sabe muito.</p>`;
+            _result.innerHTML = `<p><i class = "fas fa-check"></i>Acertou!</p>`;
         } else {
-            _result.innerHTML = `<p><i class = "fas fa-times"></i>Erooou!</p> <small><b>Ver Resposta: </b>${correctAnswer}</small>`;
+            _result.innerHTML = `<p><i class = "fas fa-times"></i>Erooou!</p> <small><b>Resposta certa: </b>${correctAnswer}</small>`;
         }
         checkCount();
     } else {
@@ -186,13 +244,16 @@ function checkCount() {
     askedCount++;
     setCount();
     if (askedCount == totalQuestion) {
-        _result.innerHTML += `<p>Sua pontuação é ${correctScore}.</p>`;
+        setTimeout(function () {
+            console.log("");
+        }, 5000);
+        _result.innerHTML += `<p>Sua pontuação final é ${correctScore}.</p>`;
         _playAgainBtn.style.display = "block";
         _checkBtn.style.display = "none";
     } else {
         setTimeout(function () {
             loadQuestion();
-        }, 1000);
+        }, 1500);
     }
 }
 
