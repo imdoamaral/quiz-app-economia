@@ -1,7 +1,8 @@
 // --- VARIÁVEIS DE ESCOPO GLOBAL ---
 const _question = document.getElementById('question');
 const _options = document.querySelector('.quiz-options');
-const _correctScore = document.getElementById('correct-score');
+// const _correctScore = document.getElementById('correct-score');
+const _askedScore = document.getElementById('asked-score');
 const _totalQuestion = document.getElementById('total-question');
 const _checkBtn = document.getElementById('check-answer');
 const _playAgainBtn = document.getElementById('play-again');
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadQuestion();
     eventListeners();
     _totalQuestion.textContent = totalQuestion;
-    _correctScore.textContent = correctScore;
+    _askedScore.textContent = askedCount;
 });
 
 // --- DEMAIS FUNÇÕES ---
@@ -127,7 +128,7 @@ function checkCount() {
 
 function setCount() {
     _totalQuestion.textContent = totalQuestion;
-    _correctScore.textContent = correctScore;
+    _askedScore.textContent = askedCount;
 }
 
 function restartQuiz() {
