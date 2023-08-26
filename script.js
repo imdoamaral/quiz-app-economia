@@ -105,6 +105,9 @@ function checkAnswer() {
         checkCount();
     } else {
         _result.innerHTML = `<p><i class = "fas fa-question"></i>Por favor, selecione uma opção.</p>`;
+        setTimeout(() => {
+            _result.innerHTML = ''; // Limpa o conteúdo de _result após 2 segundos
+        }, 2000);
         _checkBtn.disabled = false;
     }
 }
