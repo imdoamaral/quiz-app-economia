@@ -141,9 +141,6 @@ body{
     color: var(--light-color);
 }
 
-
-
-
 @media(max-width: 678px){
     .quiz-title{
         font-size: 1.6rem;
